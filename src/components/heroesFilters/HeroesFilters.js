@@ -8,7 +8,7 @@
 import { useEffect, useState} from "react";
 import { useHttp } from "../../hooks/http.hook";
 import { useSelector, useDispatch } from "react-redux";
-import { filtersFetching, filtersFetched, filterShow } from "../../actions";
+import { fetchFilters, filterShow } from "../../actions";
 import classNames from "classnames";
 import Spinner from "../spinner/Spinner";
 
@@ -19,10 +19,7 @@ const HeroesFilters = () => {
     const dispatch = useDispatch()
 
     useEffect(() => {
-        dispatch(filtersFetching());
-        request('http://localhost:3001/filters')
-            .then(data => dispatch(filtersFetched(data)))
-            .catch(data => console.log(data))
+        dispatch(fetchFilters(request))
     },[])
 
     if (filtersLoadingStatus === "loading") {
