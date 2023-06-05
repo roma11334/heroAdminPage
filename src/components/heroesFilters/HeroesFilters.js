@@ -1,4 +1,3 @@
-
 // Задача для этого компонента:
 // Фильтры должны формироваться на основании загруженных данных
 // Фильтры должны отображать только нужных героев при выборе
@@ -8,7 +7,8 @@
 import { useEffect, useState} from "react";
 import { useHttp } from "../../hooks/http.hook";
 import { useSelector, useDispatch } from "react-redux";
-import { fetchFilters, filterShow } from "../../actions";
+import { fetchFilters } from "../../actions";
+import {filterShow} from './filtersSlice'
 import classNames from "classnames";
 import Spinner from "../spinner/Spinner";
 
